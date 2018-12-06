@@ -1,0 +1,14 @@
+{
+  "name": "debounce-transfer",
+  "version": "1.0.2",
+  "description": "* `debounceWrapper`: the function to debounce * `fn`: the function of input trigger * `time`: milliseconds of setTimeout interval",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node node_modules/jasmine/bin/jasmine test/test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine": "^3.3.1"
+  }
+}
