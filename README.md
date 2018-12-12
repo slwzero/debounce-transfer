@@ -1,13 +1,43 @@
+# debounce-transfer
+[Build Status](https://github.com/slwzero/debounce-transfer)
+
+Wrap function into a debounce function.
+
+# Install
+```sh
+$ npm install debounce-transfer --save
+```
+
 # Usage
-## arguments
-* `debounceTransfer`: the function to debounce
-* `fn`: the function of input trigger
-* `time`: milliseconds of setTimeout interval
 
-```
-const db = require('debounce-transfer');
+**debounce:**
+```js
+const debounceTransfer = require('debounce-transfer')
+const debounce = debounceTransfer(fn, 300)
 
-const debounced = db(function(e) {console.log(e)}, 400);
-debounced('hello-world');
-debounced('debounced');
+function fn(a) {
+  console.log(a)
+}
+
+debounce('hi') 
+debounce('hi') 
+// log 'hi' once after 300ms.
 ```
+
+**bind this:**
+```js
+const debounceTransfer = require('debounce-transfer')
+const debounce = debounceTransfer(function () {
+  console.log(this === window)
+}, 300)
+
+window.onresize = debounce
+
+// log 'true' when resizing the window
+```
+
+
+# API
+
+# License
+MIT 
