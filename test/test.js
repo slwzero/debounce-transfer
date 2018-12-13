@@ -73,9 +73,9 @@ describe('Debounce at first', function () {
 
 describe('Bind this and proxy arguments:', function () {
     var fn
-    var debounce
+    // var debounce
     beforeEach(function () {
-        // fn = jasmine.createSpy('fn')
+        fn = jasmine.createSpy('fn')
         jasmine.clock().install()
     })
 
@@ -85,7 +85,7 @@ describe('Bind this and proxy arguments:', function () {
 
     it('this', function () {
         var fakeContext = {}
-        debounce = debounceTransfer(function () {
+        var debounce = debounceTransfer(function () {
             return this
         })
         var result = debounce.call(fakeContext) === fakeContext
@@ -93,6 +93,8 @@ describe('Bind this and proxy arguments:', function () {
     })
 
     it('argument', function () {
-        
+        var debounce = debounceTransfer(fn)
+        debounce(1)
+        expect(fn).toHaveBeenCalledWith(1)
     })
 })
