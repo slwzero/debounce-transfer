@@ -1,6 +1,6 @@
 # debounce-transfer
-[Build Status](https://github.com/slwzero/debounce-transfer)
 
+[![Build Status](https://travis-ci.com/slwzero/debounce-transfer.svg?branch=master)](https://travis-ci.com/slwzero/debounce-transfer)  
 Wrap function into a debounce function.
 
 # Install
