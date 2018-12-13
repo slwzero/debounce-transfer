@@ -13,7 +13,9 @@ $ npm install debounce-transfer --save
 **debounce:**
 ```js
 const debounceTransfer = require('debounce-transfer')
-const debounce = debounceTransfer(fn, 300)
+const debounce = debounceTransfer(fn, 300, true)
+// true means excute fn after 300ms and then every 300ms
+// false means  excute fn immediately and then every 300ms; 
 
 function fn(a) {
   console.log(a)
@@ -22,6 +24,18 @@ function fn(a) {
 debounce('hi') 
 debounce('hi') 
 // log 'hi' once after 300ms.
+```
+**excute immediately, then debounce:**
+```js
+const debounceTransfer = require('debounce-transfer')
+const debounce = debounceTransfer(fn, 300)
+
+function fn(a) {
+  console.log(a)
+}
+
+debounce('hi') // log 'hi' immediately, no delay.
+debounce('hi2') // log 'hi2' after 300ms.
 ```
 
 **bind this:**
